@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "watchify ./lib/app.jsx -o ./build/js/bundle.js -t [ babelify --presets [ es2015 react ] ] -v"
+    "build": "watchify ./src/index.js -o ./build/bundle.js -t [ babelify --presets [ es2015 react ] ] -v",
+	"check": "node build/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
     "uglifyify": "^3.0.4",
     "watchify": "^3.9.0"
   },
-  "homepage": "https://github.com/arkadiusz-wieczorek/simple-flux-test-implementation#readme"
+  "homepage": "https://github.com/arkadiusz-wieczorek/simple-flux-test-implementation#readme",
+  "dependencies": {
+    "event-emitter": "^0.3.5"
+  }
 }
