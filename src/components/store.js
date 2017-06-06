@@ -1,7 +1,9 @@
+import emitter from "./emitter.js";
+
 class Store {
 	constructor() {
 		this.state = {};
-		let args = [...arguments];
+		const args = [...arguments];
 		if (typeof args[0] === "object") this.state = args[0];
 		else {
 			console.error(
@@ -13,6 +15,7 @@ class Store {
 
 	setState(obj) {
 		this.state = Object.assign({}, this.state, obj);
+		emitter.emit("change");
 	}
 
 	getState() {

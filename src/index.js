@@ -1,13 +1,14 @@
 import Actions from "./components/actions.js";
 import Store from "./components/store.js";
+import emitter from "./components/emitter.js";
+const actions = new Actions();
+const store = new Store({ foo: "bar", bus: 23 });
 
-let actions = Actions();
-let store = new Store({ foo: "bar", bus: 23 });
+emitter.on("change", () => {
+	console.log("change store");
+});
 
-let data = store.getState();
-
-console.log(data);
-
-store.setState({ foo: "check", abc: 2121 });
+store.setState({ foo: "check", abc: 123 });
+// actions.addData({ new_data: true });
 
 console.log(store.getState());
